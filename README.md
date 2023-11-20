@@ -28,11 +28,17 @@ virt-install --connect qemu:///system --name vm-name --memory 4096 --vcpus 2 --o
 In this git repo the example kickstart file installs the bootc-quarkus-optaplanner:no-cloud-init image
 and creates a user called jwesterl with password redhat and a public ssh key.
 
-Second way, is by converting the container image and booting it using libvirt/kvm
+Second way, is by converting the container image to a qcow2 image and booting it using libvirt/kvm
 
 Converting, running as root,
-`podman run --rm -ti --security-opt label=disable --device /dev/kvm -v $(pwd):/srv -w /srv ghcr.io/cgwalters/osbuildbootc:latest build-qcow2 -I quay.io/jwesterl/bootc-quarkus-optaplanner example.qcow2`
+
+```
+podman run --rm -ti --security-opt label=disable --device /dev/kvm -v $(pwd):/srv -w /srv ghcr.io/cgwalters/osbuildbootc:latest build-qcow2 -I quay.io/jwesterl/bootc-quarkus-optaplanner example.qcow2
+```
+
 I've seen this conversation command fail every now and then, for me it's related to not being able to resolve quay.io inside the container.
 
 and then let's boot our image and inject some cloud-init data
-`virt-install --connect qemu:///system --name vm-name --memory 4096 --vcpus 2 --os-variant fedora-unknown --video virtio --graphics spice --noautoconsole --disk <path-to>/example.qcow2 --cloud-init user-data=<path-to>/cloud-config-user`
+```
+virt-install --connect qemu:///system --name vm-name --memory 4096 --vcpus 2 --os-variant fedora-unknown --video virtio --graphics spice --noautoconsole --disk <path-to>/example.qcow2 --cloud-init user-data=<path-to>/cloud-config-user
+```
