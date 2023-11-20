@@ -8,10 +8,14 @@
 
 ## Demo image
 
-`quay.io/jwesterl/bootc-quarkus-optaplanner`
+`quay.io/jwesterl/bootc-quarkus-optaplanner:latest`
+`quay.io/jwesterl/bootc-quarkus-optaplanner:no-cloud-init`
 
 Built using,
-`podman build -t quay.io/jwesterl/bootc-quarkus-optaplanner .`
+```
+podman build -f Containerfile.no-cloud-init -t quay.io/jwesterl/bootc-quarkus-optaplanner:no-cloud-init .
+podman build -f Containerfile -t quay.io/jwesterl/bootc-quarkus-optaplanner:latest .
+```
 
 ## Use Image
 
