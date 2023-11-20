@@ -1,0 +1,13 @@
+[Unit]
+Description=The quarkus Demo
+Wants=network-online.target
+After=network-online.target
+
+
+[Container]
+Image=quay.io/jwesterl/quarkus-optaplanner
+Network=host
+
+[Install]
+# Start by default on boot
+WantedBy=multi-user.target default.target

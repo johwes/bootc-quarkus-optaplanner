@@ -1,0 +1,11 @@
+[Unit]
+Description=Run a demo webserver
+Wants=network-online.target
+After=network-online.target
+
+[Container]
+Image=docker.io/library/caddy
+Network=host
+
+[Install]
+WantedBy=default.target

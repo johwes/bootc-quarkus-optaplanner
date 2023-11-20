@@ -1,0 +1,5 @@
+FROM quay.io/centos-boot/fedora-tier-1:eln
+# Copy our OS configuration - this adds automatic updates
+ADD usr usr
+RUN ostree container commit
+
