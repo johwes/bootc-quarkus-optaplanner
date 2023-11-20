@@ -1,0 +1,10 @@
+#cloud-config
+users:
+  - name: jwesterl
+    groups: wheel
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    lock_passwd: false
+    passwd: $6$rounds=4096$xFj2OL/7KDvKcRU7$lxaLSQUfL73upSCQFjvQLHfJ3BlAI7wDuicwMQm7cowSYi2B9I/1TSTh10ct8eAZF5sJiT63ZLBkHJ4b4Cgrz.
+    ssh_authorized_keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCuuPjXB3E60BZJNagUbsmMKiQSGfTfigf0z+52sKJq4IUwYw2lKLCta8CGMMhwKM/t0W4GuO5axBKYgky/pVsgh+iyW8Qu6xnpiEkJ40nmI1WiNd+XbzNoP/aSaEDQDCHXpIWQyOPdLO58wPMQtEiAG4VutHEPVquRnu7bNhXayrXE1MNf4a4hX0QMsgIP1aMvgWIPIB6NOK0gFPLkRLMiPct3rpL6iBCJgXLv3MzT3UAL8219AiZmS5chqHjMQymzk+d7IVF/gn4KgHMmU03QSmNgmh79VIHH6ehWDB/QeHWr+ZkP2m4oaZ2B8bU+qdCxrwF87CGowQOV2JmBAh5N jwesterl@jwesterl.csb
+
