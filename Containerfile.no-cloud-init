@@ -1,5 +1,6 @@
-FROM quay.io/centos-boot/fedora-tier-1:eln
+FROM quay.io/centos-bootc/fedora-bootc:eln
 # Copy our OS configuration - this adds automatic updates
 ADD usr usr
+#COPY example.ks /etc/example.ks
 RUN ostree container commit
 

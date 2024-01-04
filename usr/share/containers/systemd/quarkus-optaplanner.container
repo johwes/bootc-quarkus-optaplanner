@@ -11,3 +11,10 @@ Network=host
 [Install]
 # Start by default on boot
 WantedBy=multi-user.target default.target
+
+[Service]
+# Restart service when sleep finishes
+Restart=always
+# Extend Timeout to allow time to pull the image
+TimeoutStartSec=900
+
