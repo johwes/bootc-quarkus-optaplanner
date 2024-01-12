@@ -55,3 +55,10 @@ and then let's boot our image and inject some cloud-init data
 ```
 virt-install --connect qemu:///system --name vm-name --memory 4096 --vcpus 2 --os-variant fedora-unknown --video virtio --graphics spice --noautoconsole --import --disk <path-to>/disk.qcow2
 ```
+
+I've also tested running the bootc container "just as a normal container", So i added /usr/sbin/init as a CMD in the containerfile.systemd and run the container with:
+```
+podman run -ti --cap-add SYS_ADMIN --security-opt label=disable --device=/dev/fuse --rm quay.io/jwesterl/bootc-quarkus-optaplanner:systemd
+```
+It seems to work and I'm also able to "virt-install" this container image and get it to a running VM.
+
