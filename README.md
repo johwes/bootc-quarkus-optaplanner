@@ -15,6 +15,7 @@ Built using,
 ```
 podman build -f Containerfile.no-cloud-init -t quay.io/jwesterl/bootc-quarkus-optaplanner:no-cloud-init .
 podman build -f Containerfile -t quay.io/jwesterl/bootc-quarkus-optaplanner:latest .
+podman build --cap-add SYS_ADMIN -f Containerfile.systemd -t quay.io/jwesterl/bootc-quarkus-optaplanner:systemd
 ```
 
 ## Use Image
