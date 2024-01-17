@@ -1,4 +1,4 @@
-FROM quay.io/centos-bootc/centos-bootc-dev:stream9
+FROM quay.io/centos-bootc/centos-bootc:stream9
 # Copy our OS configuration - this adds automatic updates
 ADD usr usr
 RUN ostree container commit
